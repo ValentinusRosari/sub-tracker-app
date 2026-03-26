@@ -12,12 +12,7 @@ app.use("/api/auth", authRoutes);
 const subRoutes = require("./routes/subRoutes");
 app.use("/api/subs", subRoutes);
 
-app.use(
-  cors({
-    origin: ["http://localhost:3000", "https://sub-tracker-blush.vercel.app"],
-    credentials: true,
-  }),
-);
+app.use(cors());
 app.use(express.json());
 
 // Tes Koneksi Database
