@@ -35,14 +35,18 @@ app.get("/", (req, res) => {
 const { User, Subscription } = require("./models/index");
 
 // Sinkronisasi database
-sequelize
-  .sync({ alter: true })
-  .then(() => {
-    console.log("✨ Tabel database berhasil disinkronkan!");
-  })
-  .catch((err) => {
-    console.error("❌ Gagal sinkronisasi tabel:", err);
-  });
+if (process.env.NODE_ENV !== "production") {
+  sequelize
+    .sync({ alter: true })
+    .then(() => {
+      console.log("✨ Tabel database berhasil disinkronkan!");
+    })
+    .catch((err) => {
+      console.error("❌ Gagal sinkronisasi tabel:", err);
+    });
+} else {
+  console.log("Berjalan di Production Vercel, melewati proses sinkronisasi database.");
+}
 
 if (process.env.NODE_ENV !== "production") {
   app.listen(PORT, () => {
