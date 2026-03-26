@@ -6,6 +6,12 @@ require("dotenv").config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const authRoutes = require("./routes/authRoutes");
+app.use("/api/auth", authRoutes);
+
+const subRoutes = require("./routes/subRoutes");
+app.use("/api/subs", subRoutes);
+
 app.use(cors());
 app.use(express.json());
 
@@ -38,12 +44,10 @@ sequelize
     console.error("❌ Gagal sinkronisasi tabel:", err);
   });
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server berjalan di http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== "production") {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
 
-const authRoutes = require("./routes/authRoutes");
-app.use("/api/auth", authRoutes);
-
-const subRoutes = require("./routes/subRoutes");
-app.use("/api/subs", subRoutes);
+module.exports = app;
