@@ -134,16 +134,16 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-900 font-sans">
+    <div className="min-h-screen bg-primary-50 text-primary-950 font-sans">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200">
+      <header className="bg-primary-100 shadow-sm border-b border-primary-300">
         <div className="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-xl font-bold text-blue-600 flex items-center gap-2">
+          <h1 className="text-xl font-bold text-primary-700 flex items-center gap-2">
             <Activity className="h-6 w-6" /> SubTracker
           </h1>
           <button
             onClick={logout}
-            className="flex items-center gap-2 text-sm text-gray-600 hover:text-red-600 transition-colors"
+            className="flex items-center gap-2 text-sm text-primary-950/50 hover:text-red-600 transition-colors"
           >
             <LogOut className="h-4 w-4" /> Sign Out
           </button>
@@ -154,12 +154,12 @@ export default function DashboardPage() {
         {/* Judul & Tombol Add */}
         <div className="flex justify-between items-end mb-8">
           <div>
-            <h2 className="text-2xl font-bold">My Dashboard</h2>
-            <p className="text-gray-500 mt-1">Track and manage your recurring expenses.</p>
+            <h2 className="text-2xl font-bold ">My Dashboard</h2>
+            <p className="text-primary-950/50 mt-1">Track and manage your recurring expenses.</p>
           </div>
           <button
             onClick={() => setIsModalOpen(true)}
-            className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm"
+            className="flex items-center gap-2 bg-primary-500 hover:bg-primary-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-sm"
           >
             <Plus className="h-4 w-4" /> Add New
           </button>
@@ -167,8 +167,8 @@ export default function DashboardPage() {
 
         {/* Summary Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center gap-4">
-            <div className="p-3 bg-blue-50 text-blue-600 rounded-lg">
+          <div className="bg-white p-6 rounded-xl shadow-sm border border-primary-300 flex items-center gap-4">
+            <div className="p-3 bg-primary-100 text-primary-700 rounded-lg">
               <CreditCard className="h-6 w-6" />
             </div>
             <div>
@@ -178,8 +178,8 @@ export default function DashboardPage() {
               </p>
             </div>
           </div>
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center gap-4">
-            <div className="p-3 bg-green-50 text-green-600 rounded-lg">
+          <div className="bg-white p-6 rounded-xl shadow-sm border border-primary-300 flex items-center gap-4">
+            <div className="p-3 bg-primary-100 text-primary-700 rounded-lg">
               <Calendar className="h-6 w-6" />
             </div>
             <div>
@@ -192,8 +192,8 @@ export default function DashboardPage() {
         {error && <div className="bg-red-50 text-red-500 p-4 rounded-lg mb-6 text-sm">{error}</div>}
 
         {/* Subscription List */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-          <div className="px-6 py-4 border-b border-gray-100">
+        <div className="bg-white rounded-xl shadow-sm border border-primary-300 overflow-hidden">
+          <div className="px-6 py-4 border-b border-primary-100">
             <h3 className="font-semibold text-gray-800">Your Subscriptions</h3>
           </div>
 
@@ -211,12 +211,12 @@ export default function DashboardPage() {
                   className="p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="h-10 w-10 bg-gray-100 rounded-full flex items-center justify-center font-bold text-gray-600">
+                    <div className="h-10 w-10 bg-primary-100 rounded-full flex items-center justify-center font-bold text-primary-700">
                       {sub.name.charAt(0).toUpperCase()}
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">{sub.name}</h4>
-                      <span className="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded-full mt-1 inline-block">
+                      <span className="text-xs font-medium text-gray-500 mt-1 inline-block">
                         {sub.category}
                       </span>
                     </div>
@@ -234,20 +234,22 @@ export default function DashboardPage() {
                         year: "numeric",
                       })}
                     </p>
-                    <button
-                      onClick={() => handleEditClick(sub)}
-                      className="p-1.5 text-gray-400 hover:text-blue-500 hover:bg-blue-50 rounded-md transition-colors"
-                      title="Edit Subscription"
-                    >
-                      <Pencil className="h-4 w-4" />
-                    </button>
-                    <button
-                      onClick={() => handleDelete(sub.id)}
-                      className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-md transition-colors"
-                      title="Delete Subscription"
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </button>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => handleEditClick(sub)}
+                        className="p-1.5 text-gray-400 hover:text-accent hover:bg-accent/10 rounded-md transition-colors"
+                        title="Edit Subscription"
+                      >
+                        <Pencil className="h-4 w-4" />
+                      </button>
+                      <button
+                        onClick={() => handleDelete(sub.id)}
+                        className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 rounded-md transition-colors"
+                        title="Delete Subscription"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -260,7 +262,7 @@ export default function DashboardPage() {
       {isModalOpen && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 px-4">
           <div className="bg-white rounded-2xl w-full max-w-md shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-            <div className="px-6 py-4 border-b border-gray-100 flex justify-between items-center">
+            <div className="px-6 py-4 border-b border-primary-300 flex justify-between items-center">
               <h3 className="font-bold text-lg">
                 {editingId ? "Edit Subscription" : "Add New Subscription"}
               </h3>
@@ -269,7 +271,7 @@ export default function DashboardPage() {
                   setIsModalOpen(false);
                   setEditingId(null);
                 }}
-                className="text-gray-400 hover:text-gray-600 transition-colors"
+                className="text-primary-500 hover:text-primary-700 transition-colors"
               >
                 <X className="h-5 w-5" />
               </button>
@@ -282,7 +284,7 @@ export default function DashboardPage() {
                   type="text"
                   required
                   placeholder="e.g., Netflix, Spotify"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  className="w-full px-3 py-2 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:outline-none"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
@@ -297,7 +299,7 @@ export default function DashboardPage() {
                     type="number"
                     required
                     placeholder="150000"
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    className="w-full px-3 py-2 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:outline-none"
                     value={formData.price}
                     onChange={(e) => setFormData({ ...formData, price: e.target.value })}
                   />
@@ -307,7 +309,7 @@ export default function DashboardPage() {
                     Billing Cycle
                   </label>
                   <select
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white"
+                    className="w-full px-3 py-2 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:outline-none bg-white"
                     value={formData.billingCycle}
                     onChange={(e) => setFormData({ ...formData, billingCycle: e.target.value })}
                   >
@@ -323,7 +325,7 @@ export default function DashboardPage() {
                   <input
                     type="date"
                     required
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    className="w-full px-3 py-2 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:outline-none"
                     value={formData.startDate}
                     onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
                   />
@@ -331,7 +333,7 @@ export default function DashboardPage() {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
                   <select
-                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white"
+                    className="w-full px-3 py-2 border border-primary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:outline-none bg-white"
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                   >
@@ -358,7 +360,7 @@ export default function DashboardPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 px-4 py-2 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition-colors disabled:opacity-50"
+                  className="flex-1 px-4 py-2 text-white bg-primary-500 hover:bg-primary-700 rounded-lg font-medium transition-colors disabled:opacity-50"
                 >
                   {isSubmitting ? "Saving..." : editingId ? "Update Service" : "Save Service"}
                 </button>

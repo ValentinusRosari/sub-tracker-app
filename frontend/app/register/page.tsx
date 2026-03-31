@@ -40,7 +40,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-primary-50 px-4">
       <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
         <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-gray-900">Create an Account</h2>
@@ -72,7 +72,7 @@ export default function RegisterPage() {
                 required
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                className="block w-full pl-10 pr-3 py-2 border text-black border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 placeholder="johndoe"
               />
             </div>
@@ -90,7 +90,7 @@ export default function RegisterPage() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                className="block w-full pl-10 pr-3 py-2 border text-black border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 placeholder="name@email.com"
               />
             </div>
@@ -109,7 +109,7 @@ export default function RegisterPage() {
                 minLength={6}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                className="block w-full pl-10 pr-3 py-2 border text-black border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 placeholder="••••••••"
               />
             </div>
@@ -118,7 +118,7 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={isLoading || isSuccess}
-            className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-primary-500 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {isLoading ? "Creating account..." : "Sign Up"}
           </button>
@@ -126,7 +126,7 @@ export default function RegisterPage() {
 
         <div className="mt-6 text-center text-sm text-gray-600">
           Already have an account?{" "}
-          <a href="/login" className="text-blue-600 font-medium hover:underline">
+          <a href="/login" className="text-primary-500 font-medium hover:underline">
             Sign in here
           </a>
         </div>
